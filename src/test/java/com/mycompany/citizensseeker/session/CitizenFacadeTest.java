@@ -44,7 +44,7 @@ public class CitizenFacadeTest {
     /**
      * Test of find method, of class CitizenFacade.
      */
-    //@org.junit.Test
+    @org.junit.Test
     public void testEJB() throws NamingException {
         EJBContainer container = javax.ejb.embeddable.EJBContainer.createEJBContainer();
         CitizenFacade instance = (CitizenFacade)container.getContext().lookup("java:global/classes/CitizenFacade");

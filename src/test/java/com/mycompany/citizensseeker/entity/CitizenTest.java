@@ -44,7 +44,7 @@ public class CitizenTest {
     /**
      * Test of getIdcitizens method, of class Citizen.
      */
-    //@Test
+    @Test
     public void testInsert() throws Exception {
        // Lookup the EJB
         System.out.println("Looking up EJB...");
