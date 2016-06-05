@@ -24,17 +24,23 @@ public class CitizensWebService {
 
     public com.example.citizensservice.Citizen findCitizen(java.math.BigInteger id) {
         
-        com.mycompany.citizensseeker.entity.Citizen citizen = citizenFacade.find(id);
-        com.example.citizensservice.Citizen citizenWS = new com.example.citizensservice.Citizen();
-        citizenWS.setId(BigInteger.valueOf(citizen.getIdcitizens()));
-        citizenWS.setFirstName(citizen.getFirstName());
-        citizenWS.setLastName(citizen.getLastName());
-        citizenWS.setDirection(citizen.getDirection());
-        citizenWS.setEmailAddress(citizen.getEmailAddress());
-        citizenWS.setGender(com.example.citizensservice.GenderType.fromValue(citizen.getGender().toString()));
-        citizenWS.setPhoneNumber(citizen.getPhoneNumber());
+        if (id != null) {
+            com.mycompany.citizensseeker.entity.Citizen citizen = citizenFacade.find(id);
+            
+            if (citizen != null) {
+                com.example.citizensservice.Citizen citizenWS = new com.example.citizensservice.Citizen();
+                citizenWS.setId(BigInteger.valueOf(citizen.getIdcitizens()));
+                citizenWS.setFirstName(citizen.getFirstName());
+                citizenWS.setLastName(citizen.getLastName());
+                citizenWS.setDirection(citizen.getDirection());
+                citizenWS.setEmailAddress(citizen.getEmailAddress());
+                citizenWS.setGender(com.example.citizensservice.GenderType.fromValue(citizen.getGender().toString()));
+                citizenWS.setPhoneNumber(citizen.getPhoneNumber());
+                return citizenWS;
+            }
+        }
+        return new com.example.citizensservice.Citizen();
         
-        return citizenWS;
     }
 
     public void createCitizen(com.example.citizensservice.Citizen citizenWS) {

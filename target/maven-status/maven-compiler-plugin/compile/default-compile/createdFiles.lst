@@ -4,6 +4,7 @@ com/mycompany/citizensseeker/controllers/CitizenController.class
 com/example/citizensservice/GenderType.class
 com/mycompany/citizensseeker/controllers/util/JsfUtil$PersistAction.class
 com/mycompany/citizensseeker/entity/Citizen_.class
+com/mycompany/citizensseeker/controllers/EnumValuesProvider.class
 com/example/citizensservice/ObjectFactory.class
 com/example/citizensservice/Void.class
 com/mycompany/citizensseeker/entity/Citizen.class
