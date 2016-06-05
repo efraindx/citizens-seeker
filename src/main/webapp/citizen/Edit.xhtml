@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CitizenEditDlg" widgetVar="CitizenEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCitizenTitle}">
+            <h:form id="CitizenEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{citizenController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCitizenLabel_firstName}" for="firstName" />
+                        <p:inputText id="firstName" value="#{citizenController.selected.firstName}" title="#{bundle.EditCitizenTitle_firstName}" />
+                        <p:outputLabel value="#{bundle.EditCitizenLabel_lastName}" for="lastName" />
+                        <p:inputText id="lastName" value="#{citizenController.selected.lastName}" title="#{bundle.EditCitizenTitle_lastName}" />
+                        <p:outputLabel value="#{bundle.EditCitizenLabel_gender}" for="gender" />
+                        <p:inputText id="gender" value="#{citizenController.selected.gender}" title="#{bundle.EditCitizenTitle_gender}" />
+                        <p:outputLabel value="#{bundle.EditCitizenLabel_dateBirth}" for="dateBirth" />
+                        <p:inputText id="dateBirth" value="#{citizenController.selected.dateBirth}" title="#{bundle.EditCitizenTitle_dateBirth}" />
+                        <p:outputLabel value="#{bundle.EditCitizenLabel_direction}" for="direction" />
+                        <p:inputTextarea rows="4" cols="30" id="direction" value="#{citizenController.selected.direction}" title="#{bundle.EditCitizenTitle_direction}" />
+                        <p:outputLabel value="#{bundle.EditCitizenLabel_emailAddress}" for="emailAddress" />
+                        <p:inputText id="emailAddress" value="#{citizenController.selected.emailAddress}" title="#{bundle.EditCitizenTitle_emailAddress}" />
+                        <p:outputLabel value="#{bundle.EditCitizenLabel_phoneNumber}" for="phoneNumber" />
+                        <p:inputText id="phoneNumber" value="#{citizenController.selected.phoneNumber}" title="#{bundle.EditCitizenTitle_phoneNumber}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{citizenController.update}" value="#{bundle.Save}" update="display,:CitizenListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CitizenEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CitizenEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

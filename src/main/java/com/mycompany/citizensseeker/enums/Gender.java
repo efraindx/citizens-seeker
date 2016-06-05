@@ -10,5 +10,15 @@ package com.mycompany.citizensseeker.enums;
  * @author efraintoribioreyes
  */
 public enum Gender {
-    Male, Female
+    Male("Male"), Female("Female");
+    
+    private String label;
+    
+    private Gender(String label) {
+        this.label = label;
+    }
+    
+    public String getLabel() {
+        return label;
+    }
 }

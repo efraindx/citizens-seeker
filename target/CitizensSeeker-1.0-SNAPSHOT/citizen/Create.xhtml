@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CitizenCreateDlg" widgetVar="CitizenCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCitizenTitle}">
+            <h:form id="CitizenCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{citizenController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCitizenLabel_firstName}" for="firstName" />
+                        <p:inputText id="firstName" value="#{citizenController.selected.firstName}" required="true" requiredMessage="#{bundle.RequiredMessage_firstName}" title="#{bundle.CreateCitizenTitle_firstName}" />
+                        <p:outputLabel value="#{bundle.CreateCitizenLabel_lastName}" for="lastName" />
+                        <p:inputText id="lastName" value="#{citizenController.selected.lastName}" title="#{bundle.CreateCitizenTitle_lastName}" />
+                       <p:outputLabel value="#{bundle.CreateCitizenLabel_gender}" for="gender" />
+                         <!--<p:inputText id="gender" value="#{citizenController.selected.gender}" title="#{bundle.CreateCitizenTitle_gender}" />-->
+                        
+                        <h:selectOneMenu value="#{citizenController.selected.gender}" id="gender">
+                            <f:selectItems value="#{enumValuesProvider.genders}" var="gender" itemValue="#{gender}" itemLabel="#{gender.label}"/>
+                        </h:selectOneMenu>
+                        
+                        <p:outputLabel value="#{bundle.CreateCitizenLabel_dateBirth}" for="dateBirth"  />
+                        <p:inputText id="dateBirth" value="#{citizenController.selected.dateBirth}" required="true" requiredMessage="#{bundle.RequiredMessage_dateBirth}" title="#{bundle.CreateCitizenTitle_dateBirth}" />
+                        <p:outputLabel value="#{bundle.CreateCitizenLabel_direction}" for="direction" />
+                        <p:inputTextarea rows="4" cols="30" id="direction" value="#{citizenController.selected.direction}" title="#{bundle.CreateCitizenTitle_direction}" />
+                        <p:outputLabel value="#{bundle.CreateCitizenLabel_emailAddress}" for="emailAddress" />
+                        <p:inputText id="emailAddress" value="#{citizenController.selected.emailAddress}" title="#{bundle.CreateCitizenTitle_emailAddress}" required="true" requiredMessage="#{bundle.RequiredMessage_emailAddress}" />
+                        <p:outputLabel value="#{bundle.CreateCitizenLabel_phoneNumber}" for="phoneNumber" />
+                        <p:inputText id="phoneNumber" value="#{citizenController.selected.phoneNumber}" title="#{bundle.CreateCitizenTitle_phoneNumber}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{citizenController.create}" value="#{bundle.Save}" update="display,:CitizenListForm:datalist,:growl" oncomplete="handleSubmit(args,'CitizenCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CitizenCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

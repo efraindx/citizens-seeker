@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CitizenViewDlg" widgetVar="CitizenViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewCitizenTitle}">
+            <h:form id="CitizenViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{citizenController.selected != null}">
+                        <h:outputText value="#{bundle.ViewCitizenLabel_firstName}"/>
+                        <h:outputText value="#{citizenController.selected.firstName}" title="#{bundle.ViewCitizenTitle_firstName}"/>
+                        <h:outputText value="#{bundle.ViewCitizenLabel_lastName}"/>
+                        <h:outputText value="#{citizenController.selected.lastName}" title="#{bundle.ViewCitizenTitle_lastName}"/>
+                        <h:outputText value="#{bundle.ViewCitizenLabel_gender}"/>
+                        <h:outputText value="#{citizenController.selected.gender}" title="#{bundle.ViewCitizenTitle_gender}"/>
+                        <h:outputText value="#{bundle.ViewCitizenLabel_dateBirth}"/>
+                        <h:outputText value="#{citizenController.selected.dateBirth}" title="#{bundle.ViewCitizenTitle_dateBirth}"/>
+                        <h:outputText value="#{bundle.ViewCitizenLabel_direction}"/>
+                        <h:outputText value="#{citizenController.selected.direction}" title="#{bundle.ViewCitizenTitle_direction}"/>
+                        <h:outputText value="#{bundle.ViewCitizenLabel_emailAddress}"/>
+                        <h:outputText value="#{citizenController.selected.emailAddress}" title="#{bundle.ViewCitizenTitle_emailAddress}"/>
+                        <h:outputText value="#{bundle.ViewCitizenLabel_phoneNumber}"/>
+                        <h:outputText value="#{citizenController.selected.phoneNumber}" title="#{bundle.ViewCitizenTitle_phoneNumber}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="CitizenViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,6 +1,8 @@
 com/mycompany/citizensseeker/session/CitizenFacade.class
 com/mycompany/citizensseeker/enums/Gender.class
+com/mycompany/citizensseeker/controllers/CitizenController.class
 com/example/citizensservice/GenderType.class
+com/mycompany/citizensseeker/controllers/util/JsfUtil$PersistAction.class
 com/mycompany/citizensseeker/entity/Citizen_.class
 com/example/citizensservice/ObjectFactory.class
 com/example/citizensservice/Void.class
@@ -9,6 +11,8 @@ org/example/citizensservice/CitizensService_Service.class
 com/example/citizensservice/package-info.class
 org/example/citizensservice/CitizensService.class
 com/example/citizensservice/CitizenList.class
+com/mycompany/citizensseeker/controllers/CitizenController$CitizenControllerConverter.class
 com/mycompany/citizensseeker/session/AbstractFacade.class
 com/mycompany/citizensseeker/services/CitizensWebService.class
+com/mycompany/citizensseeker/controllers/util/JsfUtil.class
 com/example/citizensservice/Citizen.class

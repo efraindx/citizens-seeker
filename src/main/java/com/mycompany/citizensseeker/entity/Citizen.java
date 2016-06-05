@@ -35,15 +35,13 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Citizen.findByLastName", query = "SELECT c FROM Citizen c WHERE c.lastName = :lastName"),
     @NamedQuery(name = "Citizen.findByGender", query = "SELECT c FROM Citizen c WHERE c.gender = :gender"),
     @NamedQuery(name = "Citizen.findByDateBirth", query = "SELECT c FROM Citizen c WHERE c.dateBirth = :dateBirth"),
-    @NamedQuery(name = "Citizen.findByEmailAdress", query = "SELECT c FROM Citizen c WHERE c.emailAdress = :emailAdress"),
+    @NamedQuery(name = "Citizen.findByEmailAdress", query = "SELECT c FROM Citizen c WHERE c.emailAddress = :emailAddress"),
     @NamedQuery(name = "Citizen.findByPhoneNumber", query = "SELECT c FROM Citizen c WHERE c.phoneNumber = :phoneNumber")})
 public class Citizen implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue
-    @Basic(optional = false)
-    @NotNull
     @Column(name = "idcitizens")
     private Integer idcitizens;
     @Size(max = 45)
@@ -54,7 +52,6 @@ public class Citizen implements Serializable {
     private String lastName;
     
     @Enumerated
-    @Size(max = 45)
     @Column(name = "gender")
     private Gender gender;
     
