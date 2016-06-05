@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="CitizensService" targetNamespace="http://www.example.org/CitizensService/" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/CitizensService/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd1="http://www.example.com/CitizensService">
+    <wsdl:documentation>
+        Service: CitizensService
+        Version: 1
+        Owner/Creator: Efrain Toribio
+    </wsdl:documentation>
+    
+    <wsdl:types>
+        <schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://www.example.com/CitizensService" schemaLocation="CitizensService.xsd"></import>
+        </schema>
+    </wsdl:types>
+    
+    <wsdl:message name="findCitizenRequest">
+        <wsdl:part name="id" element="xsd1:integer"></wsdl:part>
+    </wsdl:message>
+    
+    <wsdl:message name="findCitizenResponse">
+        <wsdl:part name="citizen" element="xsd1:citizen"></wsdl:part>
+    </wsdl:message>
+    
+    <wsdl:message name="createCitizenRequest">
+        <wsdl:part name="citizen" element="xsd1:citizen"></wsdl:part>
+    </wsdl:message>
+    
+    <wsdl:message name="editCitizenRequest">
+        <wsdl:part name="citizen" element="xsd1:citizen"></wsdl:part>
+    </wsdl:message>
+    
+    <wsdl:message name="removeCitizenRequest">
+        <wsdl:part name="citizen" element="xsd1:citizen"></wsdl:part>
+    </wsdl:message>
+    
+    <wsdl:message name="findAllCitizensRequest">
+        <wsdl:part name="findAllCitizensRequest" element="xsd1:void"></wsdl:part>
+    </wsdl:message>
+    
+    <wsdl:message name="findAllCitizensResponse">
+        <wsdl:part name="citizens" element="xsd1:citizenList"></wsdl:part>
+    </wsdl:message>
+    
+    <wsdl:portType name="CitizensService">
+        <wsdl:documentation>Interface for provide CRUD Operations to Citizens</wsdl:documentation>
+        
+        <wsdl:operation name="findCitizen">
+            <wsdl:input message="tns:findCitizenRequest"/>
+            <wsdl:output message="tns:findCitizenResponse"/>
+        </wsdl:operation>
+        
+        <wsdl:operation name="createCitizen">
+            <wsdl:input message="tns:createCitizenRequest"/>
+        </wsdl:operation>
+        
+        <wsdl:operation name="editCitizen">
+            <wsdl:input message="tns:editCitizenRequest"/>
+        </wsdl:operation>
+        
+        <wsdl:operation name="removeCitizen">
+            <wsdl:input message="tns:removeCitizenRequest"/>
+        </wsdl:operation>
+        
+        <wsdl:operation name="findAllCitizens">
+            <wsdl:input message="tns:findAllCitizensRequest"/>
+            <wsdl:output message="tns:findAllCitizensResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    
+    <wsdl:binding name="CitizensServiceSOAP" type="tns:CitizensService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="findCitizen">
+            <soap:operation soapAction="http://www.example.org/CitizensService/findCitizen"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createCitizen">
+            <soap:operation soapAction="http://www.example.org/CitizensService/createCitizen"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="editCitizen">
+            <soap:operation soapAction="http://www.example.org/CitizensService/editCitizen"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="removeCitizen">
+            <soap:operation soapAction="http://www.example.org/CitizensService/removeCitizen"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="findAllCitizens">
+            <soap:operation soapAction="http://www.example.org/CitizensService/findAllCitizens"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CitizensService">
+        <wsdl:port name="CitizensServiceSOAP" binding="tns:CitizensServiceSOAP">
+            <soap:address location="http://www.example.org/" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

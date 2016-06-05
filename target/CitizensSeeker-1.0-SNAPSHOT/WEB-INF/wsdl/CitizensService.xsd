@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.com/CitizensService" xmlns:tn="http://www.example.com/CitizensService">
+    
+    <element name="citizenList" type="tn:citizenList"></element>
+    
+    <element name="integer" type="integer"></element>
+    
+    <element name="citizen" type="tn:citizen"></element>
+    
+    <element name="void" type="tn:void"></element>
+    
+    <complexType name="citizenList">
+        <sequence>
+            <element name="citizen" type="tn:citizen" minOccurs="0" maxOccurs="unbounded"></element>
+        </sequence>
+    </complexType>
+    
+    <complexType name="void">
+        <sequence>
+        </sequence>
+    </complexType>
+    
+    <complexType name="citizen">
+        <sequence>
+            <element name="firstName" type="string"/>
+            <element name="lastName" type="string"/>
+            <element name="gender" type="tn:genderType"/>
+            <element name="direction" type="string"/>
+            <element name="emailAddress" type="tn:emailAddress"/>
+            <element name="phoneNumber" type="string"/>
+        </sequence>
+    </complexType>
+    
+    <simpleType name="emailAddress"> 
+        <restriction base="string"> 
+            <pattern value="[^@]+@[^\.]+\..+"/> 
+        </restriction> 
+    </simpleType> 
+    
+    <simpleType name="genderType">
+        <restriction base="string">
+            <enumeration value="Male"></enumeration>
+            <enumeration value="Female"></enumeration>
+        </restriction>
+    </simpleType>
+</schema>
